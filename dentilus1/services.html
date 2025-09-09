@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Bright Smile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-tooth"></i>
+            <span>Bright Smile</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="services.html" class="nav-item active">
+                <i class="fas fa-stethoscope"></i>
+                <span>Services</span>
+            </a>
+            <a href="ordonnance.html" class="nav-item">
+                <i class="fas fa-prescription"></i>
+                <span>Ordonnances</span>
+            </a>
+            <a href="médicaments.html" class="nav-item">
+                <i class="fas fa-pills"></i>
+                <span>Médicaments</span>
+            </a>
+            <a href="Rdvs.html" class="nav-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Rendez-vous</span>
+            </a>
+            <a href="galerie.html" class="nav-item">
+                <i class="fas fa-images"></i>
+                <span>Galerie</span>
+            </a>
+            <a href="traitement.html" class="nav-item">
+                <i class="fas fa-user-md"></i>
+                <span>Traitements</span>
+            </a>
+            <a href="statistique.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>Statistiques</span>
+            </a>
+            <a href="laboratoire.html" class="nav-item">
+                <i class="fas fa-flask"></i>
+                <span>Laboratoire</span>
+            </a>
+            <a href="travauxode.html" class="nav-item">
+                <i class="fas fa-tools"></i>
+                <span>Travaux ODE</span>
+            </a>
+            <a href="complément.html" class="nav-item">
+                <i class="fas fa-plus-circle"></i>
+                <span>Complément</span>
+            </a>
+            <a href="paramètres.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Paramètres</span>
+            </a>
+            <a href="documentation.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>Documentation</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>Services Dentaires Modernes</h1>
+                <div class="current-time-display" id="currentTime"></div>
+            </div>
+            <div class="user-info">
+                <div class="status-indicator online"></div>
+                <span>Dr. Martin</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </header>
+
+        <!-- Section Hero -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Votre Sourire, Notre Passion</h1>
+                <p class="hero-subtitle">Découvrez nos services de dentisterie moderne et esthétique</p>
+                <button class="btn-bright-smile" onclick="openModal('appointmentModal')">
+                    <i class="fas fa-calendar-plus"></i> Prendre RDV
+                </button>
+            </div>
+        </section>
+
+        <!-- Services Principaux -->
+        <section class="content">
+            <div class="section-header">
+                <h2>Nos Services Principaux</h2>
+                <p>Des soins dentaires de pointe pour votre bien-être</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Dentisterie Esthétique -->
+                <div class="bright-smile-card floating">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="service-title">Dentisterie Esthétique</h3>
+                    <p class="service-description">
+                        Blanchiment, facettes, couronnes esthétiques pour un sourire parfait
+                    </p>
+                    <div class="service-price">À partir de 200€</div>
+                    <button class="btn-bright-smile" onclick="viewServiceDetails('esthetique')">
+                        En savoir plus
+                    </button>
+                </div>
+
+                <!-- Implants Dentaires -->
+                <div class="bright-smile-card floating" style="animation-delay: 0.2s;">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3 class="service-title">Implants Dentaires</h3>
+                    <p class="service-description">
+                        Remplacement de dents manquantes avec des implants de dernière génération
+                    </p>
+                    <div class="service-price">À partir de 800€</div>
+                    <button class="btn-bright-smile" onclick="viewServiceDetails('implants')">
+                        En savoir plus
+                    </button>
+                </div>
+
+                <!-- Orthodontie -->
+                <div class="bright-smile-card floating" style="animation-delay: 0.4s;">
+                    <div class="service-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="service-title">Orthodontie</h3>
+                    <p class="service-description">
+                        Aligneurs invisibles, bagues métalliques et céramiques
+                    </p>
+                    <div class="service-price">À partir de 150€/mois</div>
+                    <button class="btn-bright-smile" onclick="viewServiceDetails('orthodontie')">
+                        En savoir plus
+                    </button>
+                </div>
+
+                <!-- Endodontie -->
+                <div class="bright-smile-card floating" style="animation-delay: 0.6s;">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Endodontie</h3>
+                    <p class="service-description">
+                        Traitements de canal avec techniques modernes et indolores
+                    </p>
+                    <div class="service-price">À partir de 120€</div>
+                    <button class="btn-bright-smile" onclick="viewServiceDetails('endodontie')">
+                        En savoir plus
+                    </button>
+                </div>
+
+                <!-- Parodontologie -->
+                <div class="bright-smile-card floating" style="animation-delay: 0.8s;">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="service-title">Parodontologie</h3>
+                    <p class="service-description">
+                        Soins des gencives et traitement des maladies parodontales
+                    </p>
+                    <div class="service-price">À partir de 80€</div>
+                    <button class="btn-bright-smile" onclick="viewServiceDetails('parodontologie')">
+                        En savoir plus
+                    </button>
+                </div>
+
+                <!-- Chirurgie Orale -->
+                <div class="bright-smile-card floating" style="animation-delay: 1s;">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="service-title">Chirurgie Orale</h3>
+                    <p class="service-description">
+                        Extractions, greffes osseuses et interventions chirurgicales
+                    </p>
+                    <div class="service-price">À partir de 150€</div>
+                    <button class="btn-bright-smile" onclick="viewServiceDetails('chirurgie')">
+                        En savoir plus
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie Avant/Après -->
+        <section class="content">
+            <div class="section-header">
+                <h2>Résultats Avant/Après</h2>
+                <p>Découvrez les transformations de nos patients</p>
+            </div>
+
+            <div class="before-after-container">
+                <div class="before-after-item">
+                    <img src="https://via.placeholder.com/300x200/ff6b6b/ffffff?text=Avant" alt="Avant traitement" class="before-after-image">
+                    <div class="before-after-label before-label">Avant</div>
+                </div>
+                <div class="before-after-item">
+                    <img src="https://via.placeholder.com/300x200/4ecdc4/ffffff?text=Après" alt="Après traitement" class="before-after-image">
+                    <div class="before-after-label after-label">Après</div>
+                </div>
+            </div>
+
+            <div class="before-after-container">
+                <div class="before-after-item">
+                    <img src="https://via.placeholder.com/300x200/ff6b6b/ffffff?text=Avant" alt="Avant traitement" class="before-after-image">
+                    <div class="before-after-label before-label">Avant</div>
+                </div>
+                <div class="before-after-item">
+                    <img src="https://via.placeholder.com/300x200/4ecdc4/ffffff?text=Après" alt="Après traitement" class="before-after-image">
+                    <div class="before-after-label after-label">Après</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Témoignages -->
+        <section class="content">
+            <div class="section-header">
+                <h2>Témoignages de nos Patients</h2>
+                <p>Ce que disent nos patients satisfaits</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating-stars">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Un service exceptionnel ! L'équipe est très professionnelle et à l'écoute. 
+                        Mon sourire n'a jamais été aussi beau. Je recommande vivement !"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Marie Dubois</h4>
+                            <p>Blanchiment dentaire</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating-stars">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "J'avais peur des soins dentaires, mais ici tout s'est très bien passé. 
+                        L'équipe est rassurante et les techniques sont modernes."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Pierre Martin</h4>
+                            <p>Implant dentaire</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating-stars">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Mes aligneurs invisibles ont transformé mon sourire en seulement 6 mois. 
+                        Personne n'a remarqué que je portais un appareil !"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sophie Laurent</h4>
+                            <p>Orthodontie invisible</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="content">
+            <div class="section-header">
+                <h2>Technologies de Pointe</h2>
+                <p>Nous utilisons les dernières innovations en dentisterie</p>
+            </div>
+
+            <div class="technologies-grid">
+                <div class="bright-smile-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="service-title">Microscopie Opératoire</h3>
+                    <p class="service-description">
+                        Précision maximale pour les traitements complexes
+                    </p>
+                </div>
+
+                <div class="bright-smile-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laser"></i>
+                    </div>
+                    <h3 class="service-title">Laser Dentaire</h3>
+                    <p class="service-description">
+                        Traitements moins invasifs et plus confortables
+                    </p>
+                </div>
+
+                <div class="bright-smile-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="service-title">Scanner 3D</h3>
+                    <p class="service-description">
+                        Planification précise des traitements
+                    </p>
+                </div>
+
+                <div class="bright-smile-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3 class="service-title">Impression 3D</h3>
+                    <p class="service-description">
+                        Prothèses et guides chirurgicaux personnalisés
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal pour les détails de service -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="modalServiceTitle">Détails du Service</h2>
+                <span class="close" onclick="closeModal('serviceModal')">&times;</span>
+            </div>
+            <div class="modal-body" id="modalServiceContent">
+                <!-- Contenu dynamique -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour prise de RDV -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Prendre un Rendez-vous</h2>
+                <span class="close" onclick="closeModal('appointmentModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="form-container">
+                    <div class="form-group">
+                        <label for="patientName">Nom complet</label>
+                        <input type="text" id="patientName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientPhone">Téléphone</label>
+                        <input type="tel" id="patientPhone" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceType">Type de service</label>
+                        <select id="serviceType" class="form-input" required>
+                            <option value="">Sélectionner un service</option>
+                            <option value="esthetique">Dentisterie Esthétique</option>
+                            <option value="implants">Implants Dentaires</option>
+                            <option value="orthodontie">Orthodontie</option>
+                            <option value="endodontie">Endodontie</option>
+                            <option value="parodontologie">Parodontologie</option>
+                            <option value="chirurgie">Chirurgie Orale</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentDate">Date souhaitée</label>
+                        <input type="date" id="appointmentDate" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentTime">Heure souhaitée</label>
+                        <select id="appointmentTime" class="form-input" required>
+                            <option value="">Sélectionner une heure</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (optionnel)</label>
+                        <textarea id="message" class="form-input" rows="3" placeholder="Décrivez votre demande..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-bright-smile">
+                        <i class="fas fa-calendar-check"></i> Confirmer le RDV
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Fonctions spécifiques aux services
+        function viewServiceDetails(serviceType) {
+            const serviceDetails = {
+                esthetique: {
+                    title: "Dentisterie Esthétique",
+                    content: `
+                        <div class="service-details">
+                            <h3>Transformez votre sourire</h3>
+                            <p>Nos services de dentisterie esthétique incluent :</p>
+                            <ul>
+                                <li><strong>Blanchiment dentaire :</strong> Résultats visibles dès la première séance</li>
+                                <li><strong>Facettes en céramique :</strong> Pour des dents parfaitement alignées</li>
+                                <li><strong>Couronnes esthétiques :</strong> Restauration naturelle et durable</li>
+                                <li><strong>Bonding :</strong> Correction rapide des imperfections</li>
+                            </ul>
+                            <div class="pricing">
+                                <h4>Tarifs :</h4>
+                                <p>Blanchiment : 200€ - 400€</p>
+                                <p>Facettes : 800€ - 1200€ par dent</p>
+                                <p>Couronnes : 600€ - 1000€ par dent</p>
+                            </div>
+                        </div>
+                    `
+                },
+                implants: {
+                    title: "Implants Dentaires",
+                    content: `
+                        <div class="service-details">
+                            <h3>Remplacer vos dents manquantes</h3>
+                            <p>Nos implants dentaires de dernière génération offrent :</p>
+                            <ul>
+                                <li><strong>Matériaux biocompatibles :</strong> Titane de qualité médicale</li>
+                                <li><strong>Technologie 3D :</strong> Planification précise</li>
+                                <li><strong>Guérison rapide :</strong> Protocoles accélérés</li>
+                                <li><strong>Garantie :</strong> Suivi à vie</li>
+                            </ul>
+                            <div class="pricing">
+                                <h4>Tarifs :</h4>
+                                <p>Implant simple : 800€ - 1200€</p>
+                                <p>Implant + couronne : 1500€ - 2000€</p>
+                                <p>Greffe osseuse : 400€ - 800€</p>
+                            </div>
+                        </div>
+                    `
+                },
+                orthodontie: {
+                    title: "Orthodontie",
+                    content: `
+                        <div class="service-details">
+                            <h3>Alignez vos dents en douceur</h3>
+                            <p>Nos solutions orthodontiques modernes :</p>
+                            <ul>
+                                <li><strong>Aligneurs invisibles :</strong> Discrétion totale</li>
+                                <li><strong>Bagues céramiques :</strong> Esthétiques et efficaces</li>
+                                <li><strong>Bagues métalliques :</strong> Solution classique et fiable</li>
+                                <li><strong>Suivi 3D :</strong> Contrôle précis du mouvement</li>
+                            </ul>
+                            <div class="pricing">
+                                <h4>Tarifs :</h4>
+                                <p>Aligneurs invisibles : 200€/mois</p>
+                                <p>Bagues céramiques : 150€/mois</p>
+                                <p>Bagues métalliques : 100€/mois</p>
+                            </div>
+                        </div>
+                    `
+                },
+                endodontie: {
+                    title: "Endodontie",
+                    content: `
+                        <div class="service-details">
+                            <h3>Traitements de canal modernes</h3>
+                            <p>Nos techniques d'endodontie avancées :</p>
+                            <ul>
+                                <li><strong>Microscopie :</strong> Précision maximale</li>
+                                <li><strong>Anesthésie locale :</strong> Confort total</li>
+                                <li><strong>Désinfection 3D :</strong> Élimination complète des bactéries</li>
+                                <li><strong>Obturation thermoplastique :</strong> Scellement parfait</li>
+                            </ul>
+                            <div class="pricing">
+                                <h4>Tarifs :</h4>
+                                <p>Dévitalisation simple : 120€ - 180€</p>
+                                <p>Dévitalisation complexe : 200€ - 300€</p>
+                                <p>Retraitement : 250€ - 400€</p>
+                            </div>
+                        </div>
+                    `
+                },
+                parodontologie: {
+                    title: "Parodontologie",
+                    content: `
+                        <div class="service-details">
+                            <h3>Soins des gencives</h3>
+                            <p>Nos traitements parodontaux :</p>
+                            <ul>
+                                <li><strong>Détartrage ultrasonique :</strong> Nettoyage en profondeur</li>
+                                <li><strong>Surfaçage radiculaire :</strong> Élimination du tartre sous-gingival</li>
+                                <li><strong>Chirurgie parodontale :</strong> Régénération des tissus</li>
+                                <li><strong>Maintenance :</strong> Suivi personnalisé</li>
+                            </ul>
+                            <div class="pricing">
+                                <h4>Tarifs :</h4>
+                                <p>Détartrage : 80€ - 120€</p>
+                                <p>Surfaçage : 150€ - 250€</p>
+                                <p>Chirurgie : 300€ - 600€</p>
+                            </div>
+                        </div>
+                    `
+                },
+                chirurgie: {
+                    title: "Chirurgie Orale",
+                    content: `
+                        <div class="service-details">
+                            <h3>Interventions chirurgicales</h3>
+                            <p>Nos services de chirurgie orale :</p>
+                            <ul>
+                                <li><strong>Extractions simples :</strong> Retrait de dents de sagesse</li>
+                                <li><strong>Extractions complexes :</strong> Chirurgie d'impact</li>
+                                <li><strong>Greffes osseuses :</strong> Reconstruction de l'os</li>
+                                <li><strong>Chirurgie guidée :</strong> Précision 3D</li>
+                            </ul>
+                            <div class="pricing">
+                                <h4>Tarifs :</h4>
+                                <p>Extraction simple : 150€ - 250€</p>
+                                <p>Extraction complexe : 300€ - 500€</p>
+                                <p>Greffe osseuse : 400€ - 800€</p>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+
+            const service = serviceDetails[serviceType];
+            if (service) {
+                document.getElementById('modalServiceTitle').textContent = service.title;
+                document.getElementById('modalServiceContent').innerHTML = service.content;
+                openModal('serviceModal');
+            }
+        }
+
+        // Gestion du formulaire de RDV
+        document.addEventListener('DOMContentLoaded', function() {
+            const appointmentForm = document.querySelector('#appointmentModal form');
+            if (appointmentForm) {
+                appointmentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = {
+                        name: document.getElementById('patientName').value,
+                        phone: document.getElementById('patientPhone').value,
+                        service: document.getElementById('serviceType').value,
+                        date: document.getElementById('appointmentDate').value,
+                        time: document.getElementById('appointmentTime').value,
+                        message: document.getElementById('message').value
+                    };
+
+                    // Simulation de l'envoi
+                    showNotification('Rendez-vous demandé avec succès ! Nous vous contacterons sous 24h.', 'success');
+                    closeModal('appointmentModal');
+                    appointmentForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

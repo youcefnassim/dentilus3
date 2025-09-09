@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordonnances - Bright Smile Dental Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="logo.jpg" alt="Bright Smile Dental Clinic" class="logo-image">
+            <h1>Bright Smile</h1>
+            <p>Gestion de cabinet dentaire</p>
+        </div>
+        
+        <ul class="menu">
+            <li><a href="Accueil.html"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
+            <li><a href="ordonnance.html" class="active"><i class="fas fa-prescription"></i> <span>Ordonnances</span></a></li>
+            <li><a href="médicaments.html"><i class="fas fa-pills"></i> <span>Médicaments</span></a></li>
+            <li><a href="traitement.html"><i class="fas fa-teeth"></i> <span>Traitements</span></a></li>
+            <li><a href="travauxode.html"><i class="fas fa-tooth"></i> <span>Travaux ODE</span></a></li>
+            <li><a href="laboratoire.html"><i class="fas fa-flask"></i> <span>Laboratoire</span></a></li>
+            <li><a href="Rdvs.html"><i class="fas fa-calendar-alt"></i> <span>RDVs</span></a></li>
+            <li><a href="galerie.html"><i class="fas fa-images"></i> <span>La Galerie</span></a></li>
+            <li><a href="complément.html"><i class="fas fa-chart-bar"></i> <span>Complément</span></a></li>
+            <li><a href="statistique.html"><i class="fas fa-chart-line"></i> <span>Statistique</span></a></li>
+            <li><a href="paramètres.html"><i class="fas fa-cog"></i> <span>Paramètres</span></a></li>
+            <li><a href="documentation.html"><i class="fas fa-book"></i> <span>Documentation</span></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div class="header-left">
+                <h2>Gestion des Ordonnances</h2>
+                <div class="current-time-display">
+                    <i class="fas fa-clock"></i>
+                    <span class="current-time">--:--</span>
+                </div>
+            </div>
+            <div class="user-info">
+                <img src="https://ui-avatars.com/api/?name=Dr+Dentiste&background=1976d2&color=fff" alt="Docteur">
+                <div>
+                    <div>Dr. AYAD SOUMIA</div>
+                    <small>Dentiste</small>
+                    <div class="status-indicator status-online"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Ordonnances créées</h3>
+                    <i class="fas fa-file-medical"></i>
+                </div>
+                <div class="stat">142</div>
+                <p class="stat-desc">Ce mois-ci</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Modèles disponibles</h3>
+                    <i class="fas fa-copy"></i>
+                </div>
+                <div class="stat">18</div>
+                <p class="stat-desc">Modèles prédéfinis</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Médicaments prescrits</h3>
+                    <i class="fas fa-pills"></i>
+                </div>
+                <div class="stat">327</div>
+                <p class="stat-desc">Depuis le début du mois</p>
+            </div>
+        </div>
+
+        <!-- Section de recherche et filtres -->
+        <div class="filter-section">
+            <div class="filter-row">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Rechercher une ordonnance..." id="prescriptionSearch">
+                </div>
+                <select id="dateFilter">
+                    <option value="">Toutes les dates</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="week">Cette semaine</option>
+                    <option value="month">Ce mois</option>
+                </select>
+                <button class="btn-primary" onclick="createNewPrescription()">
+                    <i class="fas fa-plus"></i> Nouvelle Ordonnance
+                </button>
+            </div>
+        </div>
+
+        <!-- Onglets -->
+        <div class="tabs">
+            <button class="tab active">Dernières ordonnances</button>
+            <button class="tab">Modèles prédéfinis</button>
+            <button class="tab">Statistiques</button>
+        </div>
+
+        <div class="tab-content active">
+            <div class="waiting-room">
+                <div class="waiting-room-header">
+                    <h3><i class="fas fa-list"></i> Dernières ordonnances</h3>
+                    <div class="waiting-stats">
+                        <span class="badge badge-info">4 ordonnances</span>
+                        <span class="badge badge-success">Toutes validées</span>
+                    </div>
+                </div>
+                <div class="patient-list">
+                    <div class="patient-card card-with-actions">
+                        <div class="card-actions">
+                            <button class="card-action-btn" onclick="editPrescription('Marie Lambert')" title="Modifier">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="card-action-btn" onclick="printPrescription('Marie Lambert')" title="Imprimer">
+                                <i class="fas fa-print"></i>
+                            </button>
+                            <button class="card-action-btn" onclick="deletePrescription('Marie Lambert')" title="Supprimer">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <h4>Marie Lambert</h4>
+                        <p><i class="far fa-calendar"></i> Date: 12/05/2025</p>
+                        <p><i class="fas fa-pills"></i> Amoxicilline + Paracétamol</p>
+                        <div class="patient-priority">
+                            <span class="badge badge-success">Validée</span>
+                        </div>
+                    </div>
+                    <div class="patient-card card-with-actions">
+                        <div class="card-actions">
+                            <button class="card-action-btn" onclick="editPrescription('Pierre Dubois')" title="Modifier">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="card-action-btn" onclick="printPrescription('Pierre Dubois')" title="Imprimer">
+                                <i class="fas fa-print"></i>
+                            </button>
+                            <button class="card-action-btn" onclick="deletePrescription('Pierre Dubois')" title="Supprimer">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <h4>Pierre Dubois</h4>
+                        <p><i class="far fa-calendar"></i> Date: 11/05/2025</p>
+                        <p><i class="fas fa-pills"></i> Ibuprofène + Bains de bouche</p>
+                        <div class="patient-priority">
+                            <span class="badge badge-success">Validée</span>
+                        </div>
+                    </div>
+                    <div class="patient-card card-with-actions">
+                        <div class="card-actions">
+                            <button class="card-action-btn" onclick="editPrescription('Julie Moreau')" title="Modifier">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="card-action-btn" onclick="printPrescription('Julie Moreau')" title="Imprimer">
+                                <i class="fas fa-print"></i>
+                            </button>
+                            <button class="card-action-btn" onclick="deletePrescription('Julie Moreau')" title="Supprimer">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <h4>Julie Moreau</h4>
+                        <p><i class="far fa-calendar"></i> Date: 10/05/2025</p>
+                        <p><i class="fas fa-pills"></i> Antidouleurs + Antibiotiques</p>
+                        <div class="patient-priority">
+                            <span class="badge badge-warning">En attente</span>
+                        </div>
+                    </div>
+                    <div class="patient-card card-with-actions">
+                        <div class="card-actions">
+                            <button class="card-action-btn" onclick="editPrescription('Thomas Bernard')" title="Modifier">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="card-action-btn" onclick="printPrescription('Thomas Bernard')" title="Imprimer">
+                                <i class="fas fa-print"></i>
+                            </button>
+                            <button class="card-action-btn" onclick="deletePrescription('Thomas Bernard')" title="Supprimer">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <h4>Thomas Bernard</h4>
+                        <p><i class="far fa-calendar"></i> Date: 09/05/2025</p>
+                        <p><i class="fas fa-pills"></i> Soins post-opératoires</p>
+                        <div class="patient-priority">
+                            <span class="badge badge-success">Validée</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div class="form-container">
+                <h3>Modèles d'ordonnances prédéfinis</h3>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nom du modèle</th>
+                                <th>Médicaments</th>
+                                <th>Utilisations</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Antibiotique standard</td>
+                                <td>Amoxicilline 1g</td>
+                                <td>15 fois</td>
+                                <td>
+                                    <button class="btn-secondary" onclick="useTemplate('antibio')">Utiliser</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Antidouleur post-op</td>
+                                <td>Paracétamol + Ibuprofène</td>
+                                <td>8 fois</td>
+                                <td>
+                                    <button class="btn-secondary" onclick="useTemplate('antidouleur')">Utiliser</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Ordonnances ce mois</h3>
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="stat">142</div>
+                    <p class="stat-desc">+12% vs mois dernier</p>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Médicament le plus prescrit</h3>
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="stat">Amoxicilline</div>
+                    <p class="stat-desc">45 prescriptions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section des alertes -->
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>2 ordonnances en attente de validation. Vérifiez les détails.</span>
+        </div>
+
+        <div class="footer">
+            <p>Avec <span class="highlight">Bright Smile</span> votre cabinet désormais bien organisé</p>
+            <p>© 2025 Bright Smile Dental Clinic - Tous droits réservés</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Bright Smile Dental Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="logo.jpg" alt="Bright Smile Dental Clinic" class="logo-image">
+            <h1>Bright Smile</h1>
+            <p>Gestion de cabinet dentaire</p>
+        </div>
+        
+        <ul class="menu">
+            <li><a href="Accueil.html"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
+            <li><a href="ordonnance.html"><i class="fas fa-prescription"></i> <span>Ordonnances</span></a></li>
+            <li><a href="médicaments.html"><i class="fas fa-pills"></i> <span>Médicaments</span></a></li>
+            <li><a href="traitement.html"><i class="fas fa-teeth"></i> <span>Traitements</span></a></li>
+            <li><a href="travauxode.html"><i class="fas fa-tooth"></i> <span>Travaux ODE</span></a></li>
+            <li><a href="laboratoire.html"><i class="fas fa-flask"></i> <span>Laboratoire</span></a></li>
+            <li><a href="Rdvs.html"><i class="fas fa-calendar-alt"></i> <span>RDVs</span></a></li>
+            <li><a href="galerie.html" class="active"><i class="fas fa-images"></i> <span>La Galerie</span></a></li>
+            <li><a href="complément.html"><i class="fas fa-chart-bar"></i> <span>Complément</span></a></li>
+            <li><a href="statistique.html"><i class="fas fa-chart-line"></i> <span>Statistique</span></a></li>
+            <li><a href="paramètres.html"><i class="fas fa-cog"></i> <span>Paramètres</span></a></li>
+            <li><a href="documentation.html"><i class="fas fa-book"></i> <span>Documentation</span></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div class="header-left">
+                <h2>Galerie de Photos</h2>
+                <div class="current-time-display">
+                    <i class="fas fa-clock"></i>
+                    <span class="current-time">--:--</span>
+                </div>
+            </div>
+            <div class="user-info">
+                <img src="https://ui-avatars.com/api/?name=Dr+Dentiste&background=1976d2&color=fff" alt="Docteur">
+                <div>
+                    <div>Dr. AYAD SOUMIA</div>
+                    <small>Dentiste</small>
+                    <div class="status-indicator status-online"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Photos totales</h3>
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="stat">247</div>
+                <p class="stat-desc">Dans la galerie</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Dernier ajout</h3>
+                    <i class="fas fa-calendar-plus"></i>
+                </div>
+                <div class="stat">12/05/2025</div>
+                <p class="stat-desc">Il y a 2 jours</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Patients concernés</h3>
+                    <i class="fas fa-user-injured"></i>
+                </div>
+                <div class="stat">84</div>
+                <p class="stat-desc">Avec des photos</p>
+            </div>
+        </div>
+
+        <!-- Section de recherche et filtres -->
+        <div class="filter-section">
+            <div class="filter-row">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Rechercher une photo..." id="photoSearch">
+                </div>
+                <select id="patientFilter">
+                    <option value="">Tous les patients</option>
+                    <option value="marie">Marie Lambert</option>
+                    <option value="pierre">Pierre Dubois</option>
+                    <option value="julie">Julie Moreau</option>
+                </select>
+                <button class="btn-primary" onclick="uploadNewPhoto()">
+                    <i class="fas fa-upload"></i> Ajouter Photo
+                </button>
+            </div>
+        </div>
+
+        <div class="waiting-room">
+            <div class="waiting-room-header">
+                <h3><i class="fas fa-images"></i> Dernières photos ajoutées</h3>
+                <div class="waiting-stats">
+                    <span class="badge badge-info">247 photos</span>
+                    <span class="badge badge-success">84 patients</span>
+                </div>
+            </div>
+            <div class="patient-list">
+                <div class="patient-card card-with-actions">
+                    <div class="card-actions">
+                        <button class="card-action-btn" onclick="viewPhoto('Avant/Après Blanchiment')" title="Voir">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="card-action-btn" onclick="downloadPhoto('Avant/Après Blanchiment')" title="Télécharger">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="card-action-btn" onclick="deletePhoto('Avant/Après Blanchiment')" title="Supprimer">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <h4>Avant/Après Blanchiment</h4>
+                    <p><i class="fas fa-user"></i> Patient: Marie Lambert</p>
+                    <p><i class="far fa-calendar"></i> Date: 10/05/2025</p>
+                    <div class="patient-priority">
+                        <span class="badge badge-success">Avant/Après</span>
+                    </div>
+                </div>
+                <div class="patient-card card-with-actions">
+                    <div class="card-actions">
+                        <button class="card-action-btn" onclick="viewPhoto('Orthodontie - Début')" title="Voir">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="card-action-btn" onclick="downloadPhoto('Orthodontie - Début')" title="Télécharger">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="card-action-btn" onclick="deletePhoto('Orthodontie - Début')" title="Supprimer">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <h4>Orthodontie - Début</h4>
+                    <p><i class="fas fa-user"></i> Patient: Pierre Dubois</p>
+                    <p><i class="far fa-calendar"></i> Date: 08/05/2025</p>
+                    <div class="patient-priority">
+                        <span class="badge badge-info">Début traitement</span>
+                    </div>
+                </div>
+                <div class="patient-card card-with-actions">
+                    <div class="card-actions">
+                        <button class="card-action-btn" onclick="viewPhoto('Implant posé')" title="Voir">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="card-action-btn" onclick="downloadPhoto('Implant posé')" title="Télécharger">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="card-action-btn" onclick="deletePhoto('Implant posé')" title="Supprimer">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <h4>Implant posé</h4>
+                    <p><i class="fas fa-user"></i> Patient: Julie Moreau</p>
+                    <p><i class="far fa-calendar"></i> Date: 05/05/2025</p>
+                    <div class="patient-priority">
+                        <span class="badge badge-success">Terminé</span>
+                    </div>
+                </div>
+                <div class="patient-card card-with-actions">
+                    <div class="card-actions">
+                        <button class="card-action-btn" onclick="viewPhoto('Couronne céramique')" title="Voir">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="card-action-btn" onclick="downloadPhoto('Couronne céramique')" title="Télécharger">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="card-action-btn" onclick="deletePhoto('Couronne céramique')" title="Supprimer">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <h4>Couronne céramique</h4>
+                    <p><i class="fas fa-user"></i> Patient: Thomas Bernard</p>
+                    <p><i class="far fa-calendar"></i> Date: 03/05/2025</p>
+                    <div class="patient-priority">
+                        <span class="badge badge-success">Terminé</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section des alertes -->
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            <span>N'oubliez pas de sauvegarder vos photos sur un support externe pour plus de sécurité.</span>
+        </div>
+
+        <div class="footer">
+            <p>Avec <span class="highlight">Bright Smile</span> votre cabinet désormais bien organisé</p>
+            <p>© 2025 Bright Smile Dental Clinic - Tous droits réservés</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

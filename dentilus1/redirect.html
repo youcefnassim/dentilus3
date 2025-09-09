@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection - Bright Smile</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fafafa 0%, #e8f4f8 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .redirect-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0, 188, 212, 0.16);
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .logo i {
+            font-size: 3rem;
+            color: #00bcd4;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .redirect-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .redirect-text {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .redirect-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .redirect-btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-public {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+        }
+        
+        .btn-public:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+        }
+        
+        .btn-dashboard {
+            background: linear-gradient(135deg, #37474f 0%, #263238 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(55, 71, 79, 0.3);
+        }
+        
+        .btn-dashboard:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(55, 71, 79, 0.4);
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .auto-redirect {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 188, 212, 0.1);
+            border-radius: 8px;
+            color: #00bcd4;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 480px) {
+            .redirect-container {
+                padding: 30px 20px;
+            }
+            
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .redirect-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .redirect-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="redirect-container">
+        <div class="logo">
+            <i class="fas fa-tooth"></i>
+                <h1>Bright Smile</h1>
+        </div>
+        
+        <h2 class="redirect-title">Choisissez votre espace</h2>
+        <p class="redirect-text">
+            Bienvenue sur Dentilus ! Choisissez l'espace qui correspond à vos besoins :
+        </p>
+        
+        <div class="redirect-buttons">
+            <a href="index-public.html" class="redirect-btn btn-public">
+                <i class="fas fa-globe"></i>
+                Site Public
+            </a>
+            <a href="login.html" class="redirect-btn btn-dashboard">
+                <i class="fas fa-user-md"></i>
+                Espace Médecin
+            </a>
+        </div>
+        
+        <div class="auto-redirect" id="autoRedirect">
+            <i class="fas fa-info-circle"></i>
+            Redirection automatique vers le site public dans <span id="countdown">5</span> secondes...
+        </div>
+    </div>
+
+    <script>
+        // Compteur de redirection automatique
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+        const autoRedirectDiv = document.getElementById('autoRedirect');
+        
+        const timer = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            
+            if (countdown <= 0) {
+                clearInterval(timer);
+                window.location.href = 'index-public.html';
+            }
+        }, 1000);
+        
+        // Annuler la redirection automatique si l'utilisateur clique sur un bouton
+        document.querySelectorAll('.redirect-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                clearInterval(timer);
+                autoRedirectDiv.style.display = 'none';
+            });
+        });
+        
+        // Détecter si l'utilisateur est un médecin (via localStorage ou cookie)
+        document.addEventListener('DOMContentLoaded', function() {
+            const isDoctor = localStorage.getItem('dentilus_remember') === 'true';
+            
+            if (isDoctor) {
+                // Si c'est un médecin connecté, proposer directement le dashboard
+                const dashboardBtn = document.querySelector('.btn-dashboard');
+                dashboardBtn.innerHTML = '<i class="fas fa-tachometer-alt"></i> Dashboard';
+                dashboardBtn.href = 'index.html';
+                
+                // Changer le texte de redirection automatique
+                autoRedirectDiv.innerHTML = '<i class="fas fa-info-circle"></i> Redirection automatique vers le dashboard dans <span id="countdown">5</span> secondes...';
+                
+                // Rediriger vers le dashboard au lieu du site public
+                setTimeout(() => {
+                    if (countdown <= 0) {
+                        window.location.href = 'index.html';
+                    }
+                }, 5000);
+            }
+        });
+        
+        // Gestion des raccourcis clavier
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '1') {
+                window.location.href = 'index-public.html';
+            } else if (e.key === '2') {
+                window.location.href = 'login.html';
+            } else if (e.key === 'Escape') {
+                clearInterval(timer);
+                autoRedirectDiv.style.display = 'none';
+            }
+        });
+        
+        // Ajouter des tooltips pour les raccourcis
+        document.querySelector('.btn-public').title = 'Raccourci : Touche 1';
+        document.querySelector('.btn-dashboard').title = 'Raccourci : Touche 2';
+    </script>
+</body>
+</html>
